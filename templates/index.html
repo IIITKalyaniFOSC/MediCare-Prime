@@ -36,17 +36,17 @@ footer{
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" style="background-color: black !important;">
-        <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename = 'logo.png') }} " height="60px" width="275px"></a>
+        <a href="#"><img src="https://avatars.githubusercontent.com/u/37964427?s=200&v=4" height="60px" width="275px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarNav">
            <ul class="navbar-nav ml-auto">
              <li class="nav-item active">
-               <a href="#" class="nav-link">Home</a>
+               <a href="{{ url_for('home') }}" class="nav-link">Home</a>
              </li>
              <li class="nav-item active">
-                <a class="nav-link" href="kidney.html">Kidney</a>
+                <a class="nav-link" href="{{ url_for('kidney') }}">Kidney</a>
               </li>
            </ul>
          </div>
@@ -56,7 +56,7 @@ footer{
 <br>
 <br>
 <main>
-	<div class="container-fluid" style="margin-bottom: 20px;">
+	<div class="container-fluid" style="margin-top: 10%;">
 	{% block content %}
 
 	{% endblock %}
