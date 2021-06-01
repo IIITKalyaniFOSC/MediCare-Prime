@@ -32,6 +32,7 @@ def index():
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
+    output = "Invalid request method"
     if request.method == 'POST':
         # Get the file from post request
         f = request.files['file']
@@ -45,9 +46,8 @@ def upload():
 
         class_names =  ["The Person is Infected With Malaria.","The Person is not Infected With Malaria."]
         output = class_names[preds[0]]
-        return output
       
-    return None
+    return render_template('index.html', pred = output)
 
 
 if __name__ == '__main__':
