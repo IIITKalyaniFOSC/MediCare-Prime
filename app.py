@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 app = Flask(__name__)
 
 def predict(values):
-    model = pickle.load(open('models/kidney.pkl','rb'))
+    model = pickle.load(open('models/kidney/kidney.pkl','rb'))
     values = np.asarray(values)
     return model.predict(values.reshape(1, -1))[0]
     
