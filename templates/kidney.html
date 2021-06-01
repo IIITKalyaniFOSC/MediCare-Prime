@@ -1,12 +1,12 @@
 {% extends 'index.html' %}
 {% block content %}
 
-<div class="row"  style="margin-bottom: 125px;">
+<div class="row"  style="margin-bottom: 20%;">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <center><h1>Kidney Disease Predictor</h1></center>
         <div class="card card-body" style="border: 1px solid black;">
-            <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+            <form class="form-horizontal" action="{{ url_for('predictKidney') }}" method="POST">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
