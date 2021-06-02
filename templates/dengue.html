@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="row"  style="margin-bottom: 20%;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <center><h1>Dengue Disease Predictor</h1></center>
+        <div class="card card-body" style="border: 1px solid black;">
+            <form class="form-horizontal" action="{{ url_for('predictDengue') }}" method="POST">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="current_temp" placeholder="current_temp">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="wbc" placeholder="wbc">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="servere_headche" placeholder="servere_headche (0/1)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="pain_behind_the_eyes" placeholder="pain_behind_the_eyes (0/1)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="joint_muscle_aches" placeholder="joint_muscle_aches (0/1)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="metallic_taste_in_the_mouth" placeholder="metallic_taste_in_the_mouth (0/1)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="appetite_loss" placeholder="appetite_loss (0/1)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="addominal_pain" placeholder="addominal_pain (0/1)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="nausea_vomiting" placeholder="nausea_vomiting (0/1)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="diarrhoea" placeholder="diarrhoea (0/1)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="hemoglobin" placeholder="hemoglobin">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="hematocri" placeholder="hematocri">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="platelet" placeholder="platelet">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-info btn-block" value="Predict">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+{% endblock %}
