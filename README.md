@@ -7,21 +7,29 @@ Assuming you have Ananconda or Miniconda3 already working, create a tensorflow c
 
 * Install the current release of CPU-only TensorFlow, recommended for beginners:
 
-> conda create -n tf tensorflow
-> conda activate tf
+```bash
+conda create -n tf tensorflow
+conda activate tf
+```
 
 * Or, to install the current release of GPU TensorFlow on Linux or Windows:
 
-> conda create -n tf-gpu tensorflow-gpu
-> conda activate tf-gpu
+```bash
+conda create -n tf-gpu tensorflow-gpu
+conda activate tf-gpu
+```
 
 * Cd into your newly created environment (from command line or terminal)
-> cd C:\...\path-to-your-conda-environment\
+```bash
+cd C:\...\path-to-your-conda-environment\
+```
 
 * Installing modules we will need 
 Though your virtual env will have all required modules, here are some extra ones required to setup this project locally
-> pip install flash
-> pip install pillow
+```bash
+pip install flash
+pip install pillow
+```
 
 ## Running the code
 
