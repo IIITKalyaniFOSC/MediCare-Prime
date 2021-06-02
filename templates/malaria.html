@@ -1,11 +1,16 @@
-{% extends "base.html" %} 
+{% extends "index.html" %} 
 {% block content %}
 
-<h2>Image Classifier</h2>
-
+<h2>Malaria Detector</h2>
+    <nav class="navbar navbar-dark bg-dark" style="text-align: center">
+        <div style="color:#ffffff">
+            Upload your Blood Cell Sample Image for detection
+        </div>
+    </nav>
+<center>
 <div>
-    <form id="upload-file" method="post" enctype="multipart/form-data" action="{{ url_for('upload') }}" >
-        <label for="imageUpload" class="upload-label">
+    <form id="upload-file" method="post" enctype="multipart/form-data" action="{{ url_for('predictMalaria') }}" >
+        <br/><br/><label for="imageUpload" class="upload-label">
             Choose...
         </label>
         <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
@@ -20,4 +25,5 @@
     </div>
     </form>
 </div>
+</center>
 {% endblock %}
