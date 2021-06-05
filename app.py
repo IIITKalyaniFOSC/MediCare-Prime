@@ -13,6 +13,11 @@ def model_predictKidney(values):
     values = np.asarray(values)
     return model.predict(values.reshape(1, -1))[0]
 
+def model_predictCovid(values):
+    model = pickle.load(open('models/covid/covid.pkl','rb'))
+    values = np.asarray(values)
+    return model.predict(values.reshape(1, -1))[0]
+
 def model_predictDiabetes(values):
     model = pickle.load(open('models/diabetes/diabetes.pkl','rb'))
     values = np.asarray(values)
@@ -43,6 +48,10 @@ def home():
 @app.route("/kidney", methods=['GET', 'POST'])
 def kidney():
     return render_template('kidney.html')
+
+@app.route("/covid", methods=['GET', 'POST'])
+def covid():
+    return render_template('covid.htm')
     
 @app.route("/dengue", methods=['GET', 'POST'])
 def dengue():
@@ -68,6 +77,19 @@ def predictKidney():
         return render_template("index_content.html", message = message)
 
     return render_template('predictKidney.html', pred = pred)
+
+@app.route("/predictCovid", methods = ['POST', 'GET'])
+def predictCovid():
+    try:
+        if request.method == 'POST':
+            to_predict_dict = request.form.to_dict()
+            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            pred = model_predictKidney(to_predict_list)
+    except:
+        message = "Please enter valid Data"
+        return render_template("index_content.html", message = message)
+
+    return render_template('predictCovid.htm', pred = pred)
 
 @app.route("/predictDiabetes", methods = ['POST', 'GET'])
 def predictDiabetes():
