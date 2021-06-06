@@ -27,7 +27,7 @@ cd C:\...\path-to-your-conda-environment\
 * Installing modules we will need 
 Though your virtual env will have all required modules, here are some extra ones required to setup this project locally
 ```bash
-pip install flash
+pip install flask
 pip install pillow
 ```
 
