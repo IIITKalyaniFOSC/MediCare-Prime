@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import pickle, os
 import numpy as np
+import pandas as pd
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
@@ -11,7 +12,7 @@ app = Flask(__name__)
 def model_predictKidney(values):
     model = pickle.load(open('models/kidney/kidney.pkl','rb'))
     values = np.asarray(values)
-    return model.predict(values.reshape(1, -1))[0]
+    return model.predict(values.reshape(1, -1))[0] 
 
 def model_predictCovid(values):
     model = pickle.load(open('models/covid/covid.pkl','rb'))
@@ -40,6 +41,12 @@ def model_predictMalaria(img_path):
     preds=np.argmax(preds, axis=1)
     print(preds)
     return preds
+
+
+def model_predictBreastCancer(df):
+    model1 = pickle.load(open('models/breastCancer/model1.pickle','rb'))
+    return model1.predict(df)[0]
+
     
 def model_predictBreastCancer(df):
     model1 = pickle.load(open('models/breastCancer/model1.pickle','rb'))
@@ -61,6 +68,11 @@ def covid():
 @app.route("/dengue", methods=['GET', 'POST'])
 def dengue():
     return render_template('dengue.html')
+
+
+@app.route("/breastCancer", methods=['GET', 'POST'])
+def breastCancer():
+    return render_template('breastCancer.html')    
 
 @app.route("/malaria", methods=['GET', 'POST'])
 def malaria():
@@ -125,6 +137,33 @@ def predictDengue():
         return render_template("index_content.html", message = message)
 
     return render_template('predictDengue.html', pred = pred)
+
+
+@app.route('/predictBreastCancer',methods=['POST'])
+def predictBreastCancer():
+    input_features = [float(x) for x in request.form.values()]
+    features_value = [np.array(input_features)]
+    
+    features_name = ['mean radius', 'mean texture', 'mean perimeter', 'mean area',
+       'mean smoothness', 'mean compactness', 'mean concavity',
+       'mean concave points', 'mean symmetry', 'mean fractal dimension',
+       'radius error', 'texture error', 'perimeter error', 'area error',
+       'smoothness error', 'compactness error', 'concavity error',
+       'concave points error', 'symmetry error', 'fractal dimension error',
+       'worst radius', 'worst texture', 'worst perimeter', 'worst area',
+       'worst smoothness', 'worst compactness', 'worst concavity',
+       'worst concave points', 'worst symmetry', 'worst fractal dimension']
+    
+    df = pd.DataFrame(features_value, columns=features_name)
+    output = model_predictBreastCancer(df)
+        
+    if output[0] == 'M':
+        res_val = "breast cancer "
+    else:
+        res_val = "no breast cancer"
+        
+
+    return render_template('breastCancer.html', prediction_text='Patient has {}'.format(res_val))    
     
 @app.route("/predictMalaria", methods = ['POST', 'GET'])
 def predictMalaria():
