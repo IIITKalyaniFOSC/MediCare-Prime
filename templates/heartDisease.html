@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+
+  <style>
+    body {
+      background-image: url('../static/images/heartDisease.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    h1{
+        padding-top: 120px;
+        padding-bottom: 40px;
+    }
+
+    .button_css {
+        margin-top: 40px;
+    color: #494949;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+    
+    .button_css:hover {
+    margin-top: 40px;      
+    color: #ffffff;
+    transition: all 0.4s ease 0s;
+    }
+  </style>
+
+</head>
+
+<body>
+
+ <center>
+ 
+ <div class="login">
+	
+    <form action="{{ url_for('predict')}}"method="post">
+        <h1>Enter the required value for heart disease</h1>
+        
+    	<input type="text" name="cp" placeholder="cp" required="required" />
+        <br>
+        <input type="text" name="trestbps" placeholder="trestbps" required="required" />
+        <br>
+		<input type="text" name="chol" placeholder="chol" required="required" />
+        <br>
+		<input type="text" name="fbs" placeholder="fbs" required="required" />
+        <br>
+        <input type="text" name="restecg" placeholder="restecg" required="required" />
+        <br>
+		<input type="text" name="thalach" placeholder="thalach" required="required" />
+        <br>
+    	<input type="text" name="exang" placeholder="exang" required="required" />
+        <br>
+        <input type="text" name="oldpeak" placeholder="oldpeak" required="required" />
+        <br>
+		<input type="text" name="slope" placeholder="slope" required="required" />
+        <br>
+    	<input type="text" name="ca" placeholder="ca" required="required" />
+        <br>
+        <input type="text" name="thal" placeholder="thal" required="required" />
+        <br>
+        
+        <div class="button_css" align="center"> 
+            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict Heart Disease</strong></button>
+        </div>
+        
+    </form>
+  
+
+   <div>
+       
+   <h1>{{ prediction_text }}</h1>
+       
+   </div>
+
+ </div>
+</center> 
+
+</body>
+</html>
