@@ -70,11 +70,6 @@ def covid():
 def dengue():
     return render_template('dengue.html')
 
-
-@app.route("/breastCancer", methods=['GET', 'POST'])
-def breastCancer():
-    return render_template('breastCancer.html')    
-
 @app.route("/malaria", methods=['GET', 'POST'])
 def malaria():
     return render_template('malaria.html')
@@ -82,6 +77,10 @@ def malaria():
 @app.route("/diabetes", methods=['GET', 'POST'])
 def diabetes():
     return render_template('diabetes.html')
+    
+@app.route("/breastCancer", methods=['GET', 'POST'])
+def breastCancer():
+    return render_template('breastCancer.html')    
 
 @app.route("/heartDisease", methods=['GET', 'POST'])
 def heartDisease():
@@ -139,8 +138,27 @@ def predictDengue():
         return render_template("index_content.html", message = message)
 
     return render_template('predictDengue.html', pred = pred)
+ 
+    
+@app.route("/predictMalaria", methods = ['POST', 'GET'])
+def predictMalaria():
+    output = "Invalid request method"
+    if request.method == 'POST':
+        # Get the file from post request
+        f = request.files['file']
+        basepath = os.path.dirname(__file__)
+        file_path = os.path.join(
+            basepath, 'static/uploads', secure_filename(f.filename))
+        f.save(file_path)
 
+        # Make prediction
+        preds = model_predictMalaria(file_path)
 
+        class_names =  ["The Person is Infected With Malaria.","The Person is not Infected With Malaria."]
+        output = class_names[preds[0]]
+      
+    return render_template('predictMalaria.html', pred = output)
+    
 @app.route('/predictBreastCancer',methods=['POST'])
 def predictBreastCancer():
     input_features = [float(x) for x in request.form.values()]
@@ -164,6 +182,7 @@ def predictBreastCancer():
     else:
         res_val = "no breast cancer"
         
+
 
     return render_template('breastCancer.html', prediction_text='Patient has {}'.format(res_val))   
 
@@ -205,6 +224,8 @@ def predictMalaria():
         output = class_names[preds[0]]
       
     return render_template('predictMalaria.html', pred = output)
+    return render_template('breastCancer.html', prediction_text='Patient has {}'.format(res_val))    
+
 
 if __name__ == '__main__':
 	app.run(debug = True)

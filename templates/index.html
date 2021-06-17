@@ -29,6 +29,11 @@ footer{ height:75px; background:black; }
 body{ 
   display:flex; 
   flex-direction:column; 
+  
+      background-image: url('../static/images/breastCancer.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
 }
 
 footer{
@@ -63,13 +68,16 @@ footer{
                 <a class="nav-link" href="{{ url_for('covid') }}">Covid</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('breastCancer') }}">Breast-Cancer</a>
+                <a class="nav-link" href="{{ url_for('diabetes') }}">Diabetes</a>
               </li>
               <li class="nav-item active">
+
                 <a class="nav-link" href="{{ url_for('heartDisease') }}">Heart-Disease</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('diabetes') }}">Diabetes</a>
+                <a class="nav-link" href="{{ url_for('breastCancer') }}">Breast Cancer</a>
+
               </li>
            </ul>
          </div>
