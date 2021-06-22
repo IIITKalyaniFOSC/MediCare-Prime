@@ -1,4 +1,4 @@
-# MediCare-Prime
+# MediCare-Prime <img src="./static/images/MEDICARE.gif" align="right" height="450px" width="450px">
 Prediction or detection of various medical ailments. Deployed locally using Flask 2.0.
 
 ## Setup
