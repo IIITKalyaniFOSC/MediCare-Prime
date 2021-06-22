@@ -206,25 +206,6 @@ def predict():
 
     return render_template('heartDisease.html', prediction_text='Patient has {}'.format(res_val))     
     
-@app.route("/predictMalaria", methods = ['POST', 'GET'])
-def predictMalaria():
-    output = "Invalid request method"
-    if request.method == 'POST':
-        # Get the file from post request
-        f = request.files['file']
-        basepath = os.path.dirname(__file__)
-        file_path = os.path.join(
-            basepath, 'static/uploads', secure_filename(f.filename))
-        f.save(file_path)
-
-        # Make prediction
-        preds = model_predictMalaria(file_path)
-
-        class_names =  ["The Person is Infected With Malaria.","The Person is not Infected With Malaria."]
-        output = class_names[preds[0]]
-      
-    return render_template('predictMalaria.html', pred = output)
-    return render_template('breastCancer.html', prediction_text='Patient has {}'.format(res_val))    
 
 
 if __name__ == '__main__':
