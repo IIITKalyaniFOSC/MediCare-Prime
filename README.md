@@ -1,7 +1,7 @@
 # MediCare-Prime
 Prediction or detection of various medical ailments. Deployed locally using Flask 2.0.
 
-<center><img src="./static/images/MEDICARE.gif"></center>
+<center><img align="center" src="./static/images/MEDICARE.gif"></center>
 
 ## Setup
 
