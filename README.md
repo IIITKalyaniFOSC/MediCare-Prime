@@ -1,6 +1,8 @@
 # MediCare-Prime
 Prediction or detection of various medical ailments. Deployed locally using Flask 2.0.
 
+<center><img src="./static/images/MEDICARE.gif"></center>
+
 ## Setup
 
 Assuming you have Ananconda or Miniconda3 already working, create a tensorflow conda environment and install a few libraries into it, and then we're ready to go.
