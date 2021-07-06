@@ -100,7 +100,7 @@
     height: 35px;
     color: #fff;
     font-size: 16px;
-    background: green;
+    background: #458FF6;
     border: none;
     border-radius: 13px;
     box-shadow: 0 2px 3px #000;
@@ -108,7 +108,7 @@
     
   }
   .pack-info button:hover{
-    background: #ff5349;
+    background: #050AC0;
     font-size: 20px;
      box-shadow: 0 2px 3px #000;
     width: 120px;
