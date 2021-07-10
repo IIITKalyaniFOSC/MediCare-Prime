@@ -1,0 +1,158 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="row" style="margin-bottom: 20%;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <center>
+            <h1>Parkinson's Disease Predictor</h1>
+        </center>
+        <div class="card card-body" style="border: 1px solid black;">
+            <form class="form-horizontal" action="{{ url_for('predictParkinson') }}" method="POST">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="MDVP fo(Hz)"
+                                placeholder="MDVP fo(Hz)" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="MDVP Fhi (Hz)"
+                                placeholder="MDVP Fhi (Hz)" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="MDVP Flo(Hz)"
+                                placeholder="MDVP Flo(Hz)" required="required">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="MDVP Jitter(%)"
+                                placeholder="MDVP Jitter(%)" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="MDVP Jitter(Abs)"
+                                placeholder="MDVP Jitter(Abs)" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="MDVP RAP"
+                                placeholder="MDVP RAP" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="MDVP PPQ"
+                                placeholder="MDVP PPQ" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Jitter DDP"
+                                placeholder="Jitter DDP" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="MDVP Shimmer"
+                                placeholder="MDVP Shimmer" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="MDVP Shimmer(dB)"
+                                placeholder="MDVP Shimmer(dB)" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Shimmer APQ3"
+                                placeholder="Shimmer APQ3" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Shimmer APQ5"
+                                placeholder="Shimmer APQ5" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Shimmer APQ"
+                                placeholder="Shimmer APQ" required="required">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Shimmer DDA"
+                                placeholder="Shimmer DDA" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="NHR"
+                                placeholder="NHR" required="required">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="HNR"
+                                placeholder="HNR" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="RPDE"
+                                placeholder="RPDE" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="DFA"
+                                placeholder="DFA" required="required">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="spread1"
+                                placeholder="spread1" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="spread2"
+                                placeholder="spread2" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="PPE"
+                                placeholder="PPE" required="required">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="D2"
+                                placeholder="D2" required="required">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-info btn-block" value="Predict Parkinson Disease">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+{% endblock %}
