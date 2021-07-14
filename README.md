@@ -30,6 +30,7 @@ conda create -n tf tensorflow
 conda activate tf
 ```
 
+
 * Or, to install the current release of GPU TensorFlow on Linux or Windows:
 
 ```bash
@@ -71,6 +72,12 @@ Succesfull installation and running will give you a link you can visit locally. 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+## ✨ Contributors
+
+<a href="https://github.com/IIITKalyaniFOSC/MediCare-Prime/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=IIITKalyaniFOSC/MediCare-Prime" />
+</a>
 
 ## License
 [GPL](https://github.com/IIITKalyaniFOSC/MediCare-Prime/blob/main/LICENSE)
