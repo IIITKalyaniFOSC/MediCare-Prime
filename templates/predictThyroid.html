@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{%block title%}
+Thyroid Disease Prediction
+{%endblock title%}
+{% block content %}
+    <div class="row"  style="margin-bottom: 477px;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            {% if pred == 1 %}
+                <div class="card card-body alert alert-danger"><center>Normal Condition, no thyroid disease predicted</center></div>
+            {% elif pred == 2 %}
+                <div class="card card-body alert alert-success"><center>Unfortunately our algorithm predicted possibility of Hyperthyroidism, please consult a doctor</center></div>
+            {% elif pred == 3 %}
+                <div class="card card-body alert alert-success"><center>Unfortunately our algorithm predicted possibility of Hypothyroidism, please consult a doctor
+                </center></div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"><a href="{{ url_for('home') }}" class="btn btn-block btn-primary">Back to Home</a></div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+{% endblock %}
