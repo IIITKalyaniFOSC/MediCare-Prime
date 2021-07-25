@@ -3,6 +3,21 @@
 ## Overview
 The goal of the model is to identify Tumors in Brain MRI scan images. Every year more than 1 Million people are diagnosed with Brain Tumor around the globe. Early identification of tumor increases the survival rate in patients.
 
+## Downloading the trained model
+Since the model size is 300 MB which exceedes the maximum file size of GitHub, it can be downloaded using this Drive link - https://drive.google.com/drive/folders/1noJDZTS4Af3ZpcyT4x8MnDNMylCiRHgK?usp=sharing
+
+## Required Libraries
+- Tensorflow 2.3
+- Opencv 4.5.3.56
+
+## Steps to run classify an MRI using Trained Model
+1. Download the trained model from the Drive link
+2. Download 'utilize_model.py' file from the repo
+3. Copy both of them to the same folder
+4. Install the required libraries
+5. Run the command ```python utilize_model.py "path of the image to classify"```
+
+
 ## Dataset
 The training data contains 3929 Brain MRI Scan Images. <br>
 2556 images belong to non Tumor Category. <br>
