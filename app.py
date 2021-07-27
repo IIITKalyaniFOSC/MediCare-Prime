@@ -28,7 +28,17 @@ def model_predictDengue(values):
     model = pickle.load(open('models/dengue/Dengue.pkl','rb'))
     values = np.asarray(values)
     return model.predict(values.reshape(1, -1))[0]
-    
+ 
+def model_predictParkinsonDisease(values):
+    model = pickle.load(open('models/ParkinsonDisease/parkinson.pickle','rb'))
+    values = np.asarray(values)
+    return model.predict(values.reshape(1, -1))[0]
+
+def model_predictThyroidDisease(values):
+    model = pickle.load(open('models/ThyroidDisease/thyroid.pickle','rb'))
+    values = np.asarray(values)
+    return model.predict(values.reshape(1, -1))[0]
+
 def model_predictMalaria(img_path):
     model = load_model('models/malaria/malaria.h5')
     img = image.load_img(img_path, target_size=(224, 224))
@@ -69,6 +79,14 @@ def covid():
 @app.route("/dengue", methods=['GET', 'POST'])
 def dengue():
     return render_template('dengue.html')
+
+@app.route("/ParkinsonDisease", methods=['GET', 'POST'])
+def ParkinsonDisease():
+    return render_template('parkinsonDisease.html')
+
+@app.route("/ThyroidDisease", methods=['GET', 'POST'])
+def ThyroidDisease():
+    return render_template('thyroidDisease.html')
 
 @app.route("/malaria", methods=['GET', 'POST'])
 def malaria():
@@ -139,6 +157,31 @@ def predictDengue():
 
     return render_template('predictDengue.html', pred = pred)
  
+@app.route('/predictParkinsonDisease',methods=['POST', 'GET'])
+def predictParkinson():
+    try:
+        if request.method == 'POST':
+            to_predict_dict = request.form.to_dict()
+            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            pred = model_predictParkinsonDisease(to_predict_list)
+    except:
+        message = "Please enter valid Data"
+        return render_template("index_content.html", message = message)
+
+    return render_template('predictParkinson.html', pred = pred)
+
+@app.route('/predictThyroidDisease',methods=['POST', 'GET'])
+def predictThyroid():
+    try:
+        if request.method == 'POST':
+            to_predict_dict = request.form.to_dict()
+            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            pred = model_predictParkinsonDisease(to_predict_list)
+    except:
+        message = "Please enter valid Data"
+        return render_template("index_content.html", message = message)
+
+    return render_template('predictThyroid.html', pred = pred)
     
 @app.route("/predictMalaria", methods = ['POST', 'GET'])
 def predictMalaria():
