@@ -6,7 +6,7 @@
   <meta name="og:image" content="static/logo1.png">
   <meta name="Keywords" content="Flask, Machine Learning, Deep Learning, Artificial Intelligence, AI, ML,DL, Web Development">
   <meta name="description" content="A Machine Learning and Deep Learning based webapp for Multiple Disease Prediction.">
-  <title>MediCare Prime</title>
+  <title>{%block title%}{%endblock title%}</title>
   <link rel="icon" href="{{ url_for('static', filename = 'logo1.png') }}" type="image/icon type">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -39,7 +39,6 @@ body{
 footer{
   padding:10px;
   margin-top:auto;
-  margin-bottom: auto; 
 }
   </style>
 
@@ -71,13 +70,16 @@ footer{
                 <a class="nav-link" href="{{ url_for('diabetes') }}">Diabetes</a>
               </li>
               <li class="nav-item active">
-
                 <a class="nav-link" href="{{ url_for('heartDisease') }}">Heart-Disease</a>
               </li>
+	            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('ParkinsonDisease') }}">Parkinson's Disease</a>
+              </li>
               <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('diabetes') }}">Diabetes</a>
+                <a class="nav-link" href="{{ url_for('ThyroidDisease') }}">Thyroid Disease</a>
+              </li>
+              <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('breastCancer') }}">Breast Cancer</a>
-
               </li>
            </ul>
          </div>
@@ -96,7 +98,7 @@ footer{
   <footer>
     <center>
       <ul style="list-style-type:none;">
-      <li style="display: inline;"><a href="https://www.github.com/FOSC-IIIT-Kalyani" style="color: white;" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
+      <li style="display: inline;"><a href="https://github.com/IIITKalyaniFOSC" style="color: white;" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
       <li><p style="color: white;">Made with <span style="color: red;">&hearts;</span> Akshita Dixit, Isha Shaw and Medhir Manoj </p></li>
     </ul>
   </center>
