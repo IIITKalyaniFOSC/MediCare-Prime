@@ -1,93 +1,206 @@
 {% extends 'index.html' %}
+{%block title%}
+Breast Cancer
+{%endblock title%}
 {% block content %}
 
-  <style>
-    body {
-    }
-    h1{
-        padding-top: 120px;
-        padding-bottom: 40px;
-    }
+ 
+<div class="row"  style="margin-bottom: 20%;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <center><h1>Breast Cancer Predictor</h1></center>
+        <div class="card card-body" style="border: 1px solid black;">
+            <form class="form-horizontal" action="{{ url_for('predictBreastCancer') }}" method="POST">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="mean_texture" placeholder="mean_texture">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="mean_perimeter" placeholder="mean_perimeter">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="mean_area" placeholder="mean_area">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="mean_smoothness" placeholder="mean_smoothness">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="mean_compactness" placeholder="mean_compactness">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="mean concavity" placeholder="mean concavity">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="mean concave points" placeholder="mean concave points">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="mean symmetry" placeholder="mean symmetry">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="mean fractal dimension" placeholder="mean fractal dimension)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="radius error" placeholder="radius error">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="texture error" placeholder="texture error">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="perimeter error" placeholder="perimeter error">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="area error" placeholder="area error">
+                        </div>
+                    </div>
+                
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="smoothness error" placeholder="smoothness error">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="compactness error" placeholder="compactness error">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="concavity error" placeholder="concavity error">
+                        </div>
+                    </div>
+                
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="concave points error" placeholder="concave points error">
+                        </div>
+                    </div>
 
-    .button_css {
-    color: #494949 !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #ffffff;
-    border: 4px solid;
-    display: inline-block;
-    transition: all 0.4s ease 0s;
-    }
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="symmetry error" placeholder="symmetry error">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="fractal dimension error" placeholder="fractal dimension error">
+                        </div>
+                    </div>
+                    
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst radius" placeholder="worst radius">
+                        </div>
+                    </div>
     
-    .button_css:hover {
-        
-    color: #ffffff !important;
-    transition: all 0.4s ease 0s;
-    }
-  </style>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst texture" placeholder="worst texture">
+                        </div>
+                    </div>
+                    
+                </div>
 
-<body>
-
- <center>
+                <div class="row">
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst perimeter" placeholder="worst perimeter">
+                        </div>
+                    </div>
+                
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst area" placeholder="worst area">
+                        </div>
+                    </div>
  
- <div class="login">
-	
-    <form action="{{ url_for('predictBreastCancer')}}"method="post">
-        <h1>Enter the value of tumor features</h1>
-        
-    	<input type="text" name="mean_radius" placeholder="mean radius" required="required" />
-        <input type="text" name="mean_texture" placeholder="mean texture" required="required" />
-		<input type="text" name="mean_perimeter" placeholder="mean perimeter" required="required" />
-		<input type="text" name="mean_area" placeholder="mean area" required="required" />
-        <input type="text" name="mean_smoothness" placeholder="mean smoothness" required="required" />
-		<input type="text" name="mean_compactness" placeholder="mean compactness" required="required" />
-		<br>
-    	<input type="text" name="mean_concavity" placeholder="mean concavity" required="required" />
-        <input type="text" name="mean_concave_points" placeholder="mean concave points" required="required" />
-		<input type="text" name="mean_symmetry" placeholder="mean symmetry" required="required" />
-    	<input type="text" name="mean_fractal_dimension" placeholder="mean fractal dimension" required="required" />
-        <input type="text" name="radius_error" placeholder="radius error" required="required" />
-		<input type="text" name="texture_error" placeholder="texture error" required="required" />
-		<br>
-    	<input type="text" name="perimeter_error" placeholder="perimeter error" required="required" />
-        <input type="text" name="area_error" placeholder="area error " required="required" />
-		<input type="text" name="smoothness_error" placeholder="smoothness error" required="required" />
-    	<input type="text" name="compactness_error" placeholder="compactness error" required="required" />
-        <input type="text" name="concavity_error" placeholder="concavity error" required="required" />
-		<input type="text" name="concave_points_error" placeholder="concave points error" required="required" />
-    	<br>
-    	<input type="text" name="symmetry_error" placeholder="symmetry error" required="required" />
-        <input type="text" name="fractal_dimension_error" placeholder="fractal dimension error" required="required" />
-		<input type="text" name="worst_radius" placeholder="worst radius" required="required" />
-    	<input type="text" name="worst_texture" placeholder="worst texture" required="required" />
-        <input type="text" name="worst_perimeter" placeholder="worst perimeter" required="required" />
-		<input type="text" name="worst_area" placeholder="worst area" required="required" />
-		<br>
-    	<input type="text" name="worst_smoothness" placeholder="worst smoothness" required="required" />
-        <input type="text" name="worst_compactness" placeholder="worst compactness" required="required" />
-		<input type="text" name="worst_concavity" placeholder="worst concavity" required="required" />
-    	<input type="text" name="worst_concave_points" placeholder="worst concave points" required="required" />
-        <input type="text" name="worst_symmetry" placeholder="'worst symmetry" required="required" />
-		<input type="text" name="worst_fractal_dimension" placeholder="worst fractal dimension" required="required" />
-        <br>
-        <br>
-        
-        <div class="button_css" align="center"> 
-            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict Cancer</strong></button>
+             
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst smoothness" placeholder="worst smoothness">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst compactness" placeholder="worst compactness">
+                        </div>
+                    </div>
+
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst concavity" placeholder="worst concavity">
+                        </div>
+                    </div>
+                
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst concave points" placeholder="worst concave points">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst symmetry" placeholder="worst symmetry">
+                        </div>
+                    </div>
+                
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="worst fractal dimension" placeholder="worst fractal dimension">
+                        </div>
+                    </div>
+                    
+                </div>
+                
+
+                <input type="submit" class="btn btn-info btn-block" value="Predict">
+            </form>
         </div>
-        
-    </form>
- 
-
-   <div>
-       
-   <h1>{{ prediction_text }}</h1>
-       
-   </div>
-
- </div>
-</center> 
-
-</body>
+    </div>
+    <div class="col-md-2"></div>
+</div>
 
 {% endblock %}
