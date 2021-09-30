@@ -1,13 +1,68 @@
-{% extends 'index.html' %}
-{%block title%}
-Kidney Disease
-{%endblock title%}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
 
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>MediCare-Prime</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favicons/favicon.ico">
+    <link rel="manifest" href="../static/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../static/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="../static/css/theme.css" rel="stylesheet" />
+    <link href="../static/css/login.css" rel="stylesheet"/>
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
+
+        <div class="container"><a class="navbar-brand d-flex align-items-center fw-bold fs-2" href="#">
+          <!--<img class="d-inline-block me-3" src="assets/img/MEDICARE.gif" alt="" height="10%" width="15%"/>--><h1>MediCare-Prime</h1></a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
+              <li class="nav-item"><a class="nav-link fw-bold active" aria-current="page" href="{{ url_for('home') }}">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('departments') }}">Departments</a></li>
+              
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login/Sign-Up</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section class="py-0">
+        <div class="bg-holder" style="background-image:url(../static/img/illustrations/dot.png);background-position:left;background-size:auto;margin-top:-105px;">
+        </div>
 <div class="row"  style="margin-bottom: 20%;">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <center><h1>Kidney Disease Predictor</h1></center>
+        <br><br><br>
         <div class="card card-body" style="border: 1px solid black;">
             <form class="form-horizontal" action="{{ url_for('predictKidney') }}" method="POST">
                 <div class="row">
@@ -118,5 +173,32 @@ Kidney Disease
     </div>
     <div class="col-md-2"></div>
 </div>
+<footer>
+    <center>
+      <ul style="list-style-type:none;">
+      <li style="display: inline;"><a href="https://github.com/IIITKalyaniFOSC" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
+      <li><p>Made with <span style="color: red;">&hearts;</span> Akshita Dixit, Isha Shaw and Medhir Manoj </p></li>
+    </ul>
+  </center>
+  </footer>
+ </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
 
-{% endblock %}
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/jsbootstrap.min.js"></script>
+    <script src="../static/js/is.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="../staticassets/js/theme.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&amp;display=swap" rel="stylesheet">
+  </body>
+
+</html>
