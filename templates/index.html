@@ -1,228 +1,108 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="og:title" content="MediCare Prime">
+  <meta name="og:image" content="/static/images/MEDICARE.png">
+  <meta name="Keywords" content="Flask, Machine Learning, Deep Learning, Artificial Intelligence, AI, ML,DL, Web Development">
+  <meta name="description" content="A Machine Learning and Deep Learning based webapp for Multiple Disease Prediction.">
+  <title>{%block title%}{%endblock title%}</title>
+  <link rel="icon" href="/static/images/MEDICARE.png" type="image/icon type">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="static/css/main.css" rel="stylesheet"> 
+  
+  <style>
+    html, body{ height:100%; margin:0; }
+header{ height:50px;}
+footer{ height:75px; background:black; }
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+/* Trick */
+body{ 
+  display:flex; 
+  flex-direction:column; 
+  
+      background-image: url('../static/images/breastCancer.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+}
 
+footer{
+  padding:10px;
+  margin-top:auto;
+}
+  </style>
 
-    <!-- ===============================================-->
-    <!--    Document Title-->
-    <!-- ===============================================-->
-    <title>MediCare-Prime</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" style="background-color: black !important;">
+        <a href="#"><img src="https://avatars.githubusercontent.com/u/37964427?s=200&v=4" height="60px" width="275px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav ml-auto">
+             <li class="nav-item active">
+               <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+             </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('kidney') }}">Kidney</a>
+              </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('malaria') }}">Malaria</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('dengue') }}">Dengue</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('covid') }}">Covid</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('diabetes') }}">Diabetes</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('heartDisease') }}">Heart-Disease</a>
+              </li>
+	            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('ParkinsonDisease') }}">Parkinson's Disease</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('ThyroidDisease') }}">Thyroid Disease</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('breastCancer') }}">Breast Cancer</a>
+              </li>
+           </ul>
+         </div>
+       </nav>
+	<br>
+<br>
+<br>
+<br>
+<main>
+	<div class="container-fluid" style="margin-top: 10%;">
+	{% block content %}
 
-
-    <!-- ===============================================-->
-    <!--    Favicons-->
-    <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/img/MEDICARE.gif">
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/img/MEDICARE.gif">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/img/MEDICARE.gif">
-    <link rel="shortcut icon" type="image/x-icon" href="../static/img/MEDICARE.gif">
-    <link rel="manifest" href="../static/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="../static/img/MEDICARE.gif">
-    <meta name="theme-color" content="#ffffff">
-
-
-    <!-- ===============================================-->
-    <!--    Stylesheets-->
-    <!-- ===============================================-->
-    <link href="../static/css/theme.css" rel="stylesheet" />
-    <link href="../static/css/contact.css" rel="stylesheet"/>
-
-  </head>
-
-
-  <body>
-
-    <!-- ===============================================-->
-    <!--    Main Content-->
-    <!-- ===============================================-->
-    <main class="main" id="top">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
-        <div class="container"><a class="navbar-brand d-flex align-items-center fw-bold fs-2" href="#">
-          <!--<img class="d-inline-block me-3" src="assets/img/MEDICARE.gif" alt="" height="10%" width="15%"/>--><h1>MediCare-Prime</h1></a>
-          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
-              <li class="nav-item"><a class="nav-link fw-bold active" aria-current="page" href="{{ url_for('home') }}">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="{{ url_for('departments') }}">Departments</a></li>
-              
-              <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login/Sign-Up</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <section class="py-0">
-        <div class="bg-holder" style="background-image:url(../static/img/illustrations/dot.png);background-position:left;background-size:auto;margin-top:-105px;">
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="container position-relative">
-          <div class="row align-items-center">
-            <div class="col-md-5 col-lg-6 order-md-1 pt-8"><img class="img-fluid" src="../static/img/illustrations/hero-header.png" alt="" /></div>
-            <div class="col-md-7 col-lg-6 text-center text-md-start pt-5 pt-md-9">
-              <h1 class="mb-4 display-3 fw-bold">Virtual healthcare <br class="d-block d-lg-none d-xl-block" />for you.</h1>
-              <p class="mt-3 mb-4 fs-1">Prediction or detection of various medical ailments. <br class="d-none d-lg-block" />healthcare, accessible online<br class="d-none d-lg-block" />for everyone</p><a class="btn btn-lg btn-primary rounded-pill hover-top" href="#" role="button">Learn more</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="py-8">
-        <div class="bg-holder" style="background-image:url(../static/img/illustrations/services-bg.png);background-position:center left;background-size:auto;">
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="bg-holder" style="background-image:url(../static/img/illustrations/dot-2.png);background-position:center right;background-size:auto;margin-left:-180px;margin-top:20px;">
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="container-lg">
-          <div class="row justify-content-center">
-            <div class="col-3 text-center">
-              <h2 id="services" class="fw-bold">Our services</h2>
-              <hr class="w-25 mx-auto text-dark" style="height:2px;" />
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-sm-9 col-xl-8 text-center">
-              <p></p>
-            </div>
-          </div>
-          <div class="row justify-content-center h-100 pt-7 g-4">
-            <div class="col-sm-9 col-md-4">
-              <div class="card h-100 w-100 shadow rounded-lg p-3 p-md-2 p-lg-3 p-xl-5">
-                <div class="card-body text-center text-md-start">
-                  <div class="py-3"><img class="img-fluid" src="../static/img/illustrations/search.png" height="90" alt="" /></div>
-                  <div class="py-3">
-
-                    <h4 class="fw-bold card-title">Get yourself tested</h4>
-                    <p class="card-text">Help us with necessary data so we detect if you're healthy.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-9 col-md-4">
-              <div class="card h-100 w-100 shadow rounded-lg p-3 p-md-2 p-lg-3 p-xl-5">
-                <div class="card-body text-center text-md-start">
-                  <div class="py-3"><img class="img-fluid" src="../static/img/illustrations/details-info.png" height="90" alt="" /></div>
-                  <div class="py-3">
-                    <h4 class="fw-bold card-title">Health Records</h4>
-                    <p class="card-text">Track and save your medical history and health data.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-9 col-md-4">
-              <div class="card h-100 w-100 shadow rounded-lg p-3 p-md-2 p-lg-3 p-xl-5">
-                <div class="card-body text-center text-md-start">
-                  <div class="py-3"><img class="img-fluid" src="../static/img/illustrations/emergency-care.png" height="90" alt="" /></div>
-                  <div class="py-3">
-                    <h4 class="fw-bold card-title">Tips and Advice</h4>
-                    <p class="card-text">Blogposts from famous publications, catered to your need so you get the best recomendations</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="text-center py-4">
-              <button class="btn btn-lg btn-outline-primary rounded-pill" type="submit">Learn more </button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="py-6 py-lg-8" id="about">
-        <div class="bg-holder" style="background-image:url(../static/img/illustrations/dot.png);background-position:right bottom;background-size:auto;margin-top:50px;">
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="container">
-          <div class="row g-xl-0 align-items-center">
-            <div class="col-md-6"><img class="img-fluid mb-5 mb-md-0" src="../static/img/illustrations/about-1.png" width="480" alt="" /></div>
-            <div class="col-md-6 text-center text-md-start">
-              <h2 class="fw-bold lh-base">Models with high accuracy, secure database<br /></h2>
-              <hr class="text-dark mx-auto mx-md-0" style="height:2px;width:50px" />
-              <p class="pt-3">So we ensure you get the best results with your privacy uncompromised.</p>
-              <div class="py-3">
-                <button class="btn btn-lg btn-outline-primary rounded-pill" type="submit">Learn more</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section class="py-6 py-lg-8">
-
-        <div class="container">
-          <div class="row g-xl-0 align-items-center">
-            <div class="col-md-6 order-md-1 text-md-end">
-              <div class="contact-container">  
-                <form id="contact" action="" method="post">
-                  <fieldset>
-                    <input placeholder="Your name" type="text" tabindex="1" required>
-                  </fieldset>
-                  <fieldset>
-                    <input placeholder="Your Email Address" type="email" tabindex="2" required>
-                  </fieldset>
-                  <fieldset>
-                    <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
-                  </fieldset>
-                  <fieldset>
-                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-            <div class="col-md-6 text-center text-md-start order-md-0">
-              <h2 class="fw-bold lh-base">Contact Us<br /></h2>
-              <hr class="text-dark mx-auto mx-md-0" style="height:2px;width:50px" />
-              <p class="pt-3">We appreciate feedbacks.</p>
-              <div class="py-3">
-              </div>
-            </div>
-          </div>
-        </div><!-- end of .container-->
-
-      </section>
-      <!-- <section> close ============================-->
-      <!-- ============================================-->
- <footer>
+	{% endblock %}
+    </div>
+  </main>
+  <footer>
     <center>
       <ul style="list-style-type:none;">
-      <li style="display: inline;"><a href="https://github.com/IIITKalyaniFOSC" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
-      <li><p>Made with <span style="color: red;">&hearts;</span> Akshita Dixit, Isha Shaw and Medhir Manoj </p></li>
+      <li style="display: inline;"><a href="https://github.com/IIITKalyaniFOSC" style="color: white;" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
+      <li><p style="color: white;">Made with <span style="color: red;">&hearts;</span> Akshita Dixit, Isha Shaw and Medhir Manoj </p></li>
     </ul>
   </center>
   </footer>
-
-      
-
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
-     
-
-
-    </main>
-    <!-- ===============================================-->
-    <!--    End of Main Content-->
-    <!-- ===============================================-->
-
-
-
-
-    <!-- ===============================================-->
-    <!--    JavaScripts-->
-    <!-- ===============================================-->
-    <script src="../static/js/popper.min.js"></script>
-    <script src="../static/jsbootstrap.min.js"></script>
-    <script src="../static/js/is.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="../static/js/theme.js"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&amp;display=swap" rel="stylesheet">
-  </body>
- 
+  <script src="static/js/main.js" type="text/javascript"></script>
+</body>
 </html>
