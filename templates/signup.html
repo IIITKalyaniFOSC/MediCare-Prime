@@ -55,18 +55,16 @@
           </div>
         </div>
       </nav>
-      <section class="py-0">
-        <div class="bg-holder" style="background-image:url(../static/img/illustrations/dot.png);background-position:left;background-size:auto;margin-top:-105px;">
-        </div>
-
-
-        <div class="login-container">
-			<h1 class="login-h">Sign-Up</h1>
-		<form action="#" method="POST">
-			<input type="text" placeholder="username" class="field">
-			<input type="password" placeholder="password" class="field">
-			<input type="submit" value="signup" class="btn">
-		</form>
+      <div class = "login-page">
+            <div class="form">
+                <br><br><br>
+                <h1 class="login-h">Sign up</h1>
+          
+                <form class="login">
+                    <input type ="text" placeholder="Username" class="field"/>
+                    <input type ="text" placeholder="Password" class="field"/>
+                    <input type="submit" value="login" class="btn">
+                </form>
 		<div class="pass-link">
 			<a href="{{ url_for('login') }}" >Login</a>
 		</div>	
