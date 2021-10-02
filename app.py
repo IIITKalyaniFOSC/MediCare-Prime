@@ -14,6 +14,54 @@ def model_predictKidney(values):
     values = np.asarray(values)
     return model.predict(values.reshape(1, -1))[0] 
 
+def model_predictCovid(values):
+    model = pickle.load(open('models/covid/covid.pkl','rb'))
+    values = np.asarray(values)
+    return model.predict(values.reshape(1, -1))[0]
+
+def model_predictDiabetes(values):
+    model = pickle.load(open('models/diabetes/diabetes.pkl','rb'))
+    values = np.asarray(values)
+    return model.predict(values.reshape(1, -1))[0]
+
+def model_predictDengue(values):
+    model = pickle.load(open('models/dengue/Dengue.pkl','rb'))
+    values = np.asarray(values)
+    return model.predict(values.reshape(1, -1))[0]
+ 
+def model_predictParkinsonDisease(values):
+    model = pickle.load(open('models/ParkinsonDisease/parkinson.pickle','rb'))
+    values = np.asarray(values)
+    return model.predict(values.reshape(1, -1))[0]
+
+def model_predictThyroidDisease(values):
+    model = pickle.load(open('models/ThyroidDisease/thyroid.pickle','rb'))
+    values = np.asarray(values)
+    return model.predict(values.reshape(1, -1))[0]
+
+def model_predictMalaria(img_path):
+    model = load_model('models/malaria/malaria.h5')
+    img = image.load_img(img_path, target_size=(224, 224))
+    x = image.img_to_array(img)
+    x=x/255
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+
+    preds = model.predict(x)
+    preds=np.argmax(preds, axis=1)
+    print(preds)
+    return preds
+
+
+def model_predictBreastCancer(df):
+    model1 = pickle.load(open('models/breastCancer/model1.pickle','rb'))
+    return model1.predict(df)[0]
+
+
+def model_predictHeartDisease(df):
+    model = pickle.load(open('models/heartDisease/model.pickle','rb'))
+    return model.predict(df)[0]
+
 @app.route("/")
 def home():
     return render_template('index.html')
