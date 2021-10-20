@@ -62,11 +62,22 @@ def model_predictHeartDisease(df):
     model = pickle.load(open('models/heartDisease/model.pickle','rb'))
     return model.predict(df)[0]
 
-
-    
 @app.route("/")
 def home():
-    return render_template('index_content.html')
+    return render_template('index.html')
+
+@app.route("/departments", methods=['GET', 'POST'])
+def departments():
+    return render_template('departments.html')
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')   
+
+@app.route("/signup", methods=['GET', 'POST'])
+def signup():
+    return render_template('signup.html') 
+   
 
 @app.route("/kidney", methods=['GET', 'POST'])
 def kidney():
@@ -250,6 +261,5 @@ def predict():
     return render_template('heartDisease.html', prediction_text='Patient has {}'.format(res_val))     
     
 
-
 if __name__ == '__main__':
-	app.run()
+	app.run(debug=True)
