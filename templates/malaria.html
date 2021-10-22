@@ -58,15 +58,15 @@
       <section class="py-0">
         <div class="bg-holder" style="background-image:url(../static/img/illustrations/dot.png);background-position:left;background-size:auto;margin-top:-105px;">
         </div>
+      </section>
 
-<h2>Malaria Detector</h2>
+    <center><h2 style="margin-top: 200px;">Malaria Detector</h2></center>
     <nav class="navbar navbar-dark bg-dark" style="text-align: center">
         <div style="color:#ffffff">
             Upload your Blood Cell Sample Image for detection
         </div>
     </nav>
 <center>
-<div>
     <form id="upload-file" method="post" enctype="multipart/form-data" action="{{ url_for('predictMalaria') }}" >
         <br/><br/><label for="imageUpload" class="upload-label">
             Choose...
@@ -82,10 +82,9 @@
         </div>
     </div>
     </form>
-</div>
 </center>
 
-<footer>
+<footer style="position: fixed; bottom: 0; width: 100%;">
     <center>
       <ul style="list-style-type:none;">
       <li style="display: inline;"><a href="https://github.com/IIITKalyaniFOSC" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
