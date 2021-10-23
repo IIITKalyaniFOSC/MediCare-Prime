@@ -17,3 +17,4 @@ urllib3==1.26.5
 Werkzeug==2.0.1
 gunicorn==19.8.0
 dnspython==2.1.0
+PyMongo==3.12.1
