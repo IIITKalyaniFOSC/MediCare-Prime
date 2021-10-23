@@ -11,8 +11,8 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 
-app.config['MONGO_DBNAME'] = 'medicareDB'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/medicareDB'
+app.config['MONGO_DBNAME'] = 'medicare-prime'
+app.config['MONGO_URI'] = 'mongodb+srv://admin:admin@cluster0.cujsu.mongodb.net/medicare-prime?retryWrites=true&w=majority'
 mongo = PyMongo(app)
 
 
