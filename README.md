@@ -20,22 +20,30 @@
 Prediction or detection of various medical ailments. Deployed locally using Flask 2.0.
 
 ## Setup
+ 
+If you do not have Anaconda or Miniconda3 installed install it using the following link
 
-Assuming you have Ananconda or Miniconda3 already working, create a tensorflow conda environment and install a few libraries into it, and then we're ready to go.
+Anaconda  :  https://www.anaconda.com/products/individual
+
+MiniConda3 : https://docs.conda.io/en/latest/miniconda.html
+
+If you have Anaconda installed create a conda environment  :
 
 * Install the current release of CPU-only TensorFlow, recommended for beginners:
 
 ```bash
-conda create -n tf tensorflow
+conda create -n tf 
 conda activate tf
+conda install -c conda-forge tensorflow
 ```
 
 
 * Or, to install the current release of GPU TensorFlow on Linux or Windows:
 
 ```bash
-conda create -n tf-gpu tensorflow-gpu
+conda create -n tf-gpu
 conda activate tf-gpu
+conda install tensorflow-gpu
 ```
 
 * Cd into your newly created environment (from command line or terminal)
