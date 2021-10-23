@@ -39,7 +39,7 @@
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
-    <main class="main" id="top">
+    <main class="main" id="top" style="overflow: hidden;">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
 
         <div class="container"><a class="navbar-brand d-flex align-items-center fw-bold fs-2" href="#">
@@ -59,11 +59,11 @@
         <div class="bg-holder" style="background-image:url(../static/img/illustrations/dot.png);background-position:left;background-size:auto;margin-top:-105px;">
         </div>
 
-<div class="row" style="margin-bottom: 20%;">
+<div class="row" style="margin-top: 100px;">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <center>
-            <h1>Heart disease Predictor</h1>
+            <h1 style="margin: 30px;">Heart disease Predictor</h1>
         </center>
         <div class="card card-body" style="border: 1px solid black;">
             <form class="form-horizontal" action="{{ url_for('predict') }}" method="POST">
@@ -148,7 +148,7 @@
     <div class="col-md-2"></div>
 </div>
 
-<footer>
+<footer style="position: fixed; bottom: 0; width: 100%;">
     <center>
       <ul style="list-style-type:none;">
       <li style="display: inline;"><a href="https://github.com/IIITKalyaniFOSC" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
