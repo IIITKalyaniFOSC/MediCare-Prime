@@ -50,11 +50,16 @@
               <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="{{ url_for('departments') }}">Departments</a></li>
              
+<<<<<<< HEAD
               <li class="nav-item"><a class="nav-link fw-bold active" href="{{ url_for('login') }}">Login/Sign-Up</a></li>
+=======
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('loginPage') }}">Login/Sign-Up</a></li>
+>>>>>>> 95d71f0379a4f44c0e70b8312a014c70e447c231
             </ul>
           </div>
         </div>
       </nav>
+<<<<<<< HEAD
       <center>
         <div class="login-page" style="width: 40%; margin-top: 100px; align-content: center;">
           <div class="form">
@@ -71,6 +76,22 @@
             </div>
           </div>
       </center>
+=======
+      <div class = "login-page">
+            <div class="form">
+                <br><br><br>
+                <h1 class="login-h">Sign up</h1>
+          
+                <form class="login" action="/signup" method="POST">
+                    <input type ="text" placeholder="Username" name = "name_input" class="field"/>
+                    <input type ="text" placeholder="Password" name = "password_input" class="field"/>
+                    <input type="submit" value="login" class="btn">
+                </form>
+		<div class="pass-link">
+			<a href="{{ url_for('loginPage') }}" >Login</a>
+		</div>	
+	</div>
+>>>>>>> 95d71f0379a4f44c0e70b8312a014c70e447c231
         
       
 
