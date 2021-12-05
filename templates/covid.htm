@@ -39,7 +39,7 @@
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
-    <main class="main" id="top">
+    <main class="main" id="top" style="overflow: hidden;">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
 
         <div class="container"><a class="navbar-brand d-flex align-items-center fw-bold fs-2" href="#">
@@ -60,10 +60,10 @@
         </div>
 
 
-<div class="row"  style="margin-bottom: 20%;">
+<div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <center><h1>Covid Predictor</h1></center>
+        <center style="margin-top: 100px;"><h1 style="margin: 30px;">Covid Predictor</h1></center>
         <div class="card card-body" style="border: 1px solid black;">
             <form class="form-horizontal" action="{{ url_for('predictCovid') }}" method="POST">
                 <div class="row">
@@ -153,7 +153,7 @@
 </div>
 
 
-<footer>
+<footer style="position: fixed; bottom: 0; width: 100%;">
     <center>
       <ul style="list-style-type:none;">
       <li style="display: inline;"><a href="https://github.com/IIITKalyaniFOSC" target="blank"><span class="fa fa-github">  GitHub</span></a></li>

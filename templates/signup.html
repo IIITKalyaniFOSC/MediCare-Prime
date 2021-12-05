@@ -47,14 +47,36 @@
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
-              <li class="nav-item"><a class="nav-link fw-bold active" aria-current="page" href="{{ url_for('home') }}">Home</a></li>
+              <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="{{ url_for('departments') }}">Departments</a></li>
              
+<<<<<<< HEAD
+              <li class="nav-item"><a class="nav-link fw-bold active" href="{{ url_for('login') }}">Login/Sign-Up</a></li>
+=======
               <li class="nav-item"><a class="nav-link" href="{{ url_for('loginPage') }}">Login/Sign-Up</a></li>
+>>>>>>> 95d71f0379a4f44c0e70b8312a014c70e447c231
             </ul>
           </div>
         </div>
       </nav>
+<<<<<<< HEAD
+      <center>
+        <div class="login-page" style="width: 40%; margin-top: 100px; align-content: center;">
+          <div class="form">
+            <br><br><br>
+            <h1 class="login-h">SignUp</h1>
+        
+            <form class="login">
+              <input type="text" placeholder="Username" class="field" />
+              <input type="text" placeholder="Password" class="field" />
+              <input type="submit" value="SignUp" class="btn">
+            </form>
+            <div class="pass-link">
+              <a href="{{ url_for('login') }}">Login</a>
+            </div>
+          </div>
+      </center>
+=======
       <div class = "login-page">
             <div class="form">
                 <br><br><br>
@@ -69,6 +91,7 @@
 			<a href="{{ url_for('loginPage') }}" >Login</a>
 		</div>	
 	</div>
+>>>>>>> 95d71f0379a4f44c0e70b8312a014c70e447c231
         
       
 
@@ -99,7 +122,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&amp;display=swap" rel="stylesheet">
   </body>
-<footer>
+<footer style="position: fixed; bottom: 0; width: 100%;">
     <center>
       <ul style="list-style-type:none;">
       <li style="display: inline;"><a href="https://github.com/IIITKalyaniFOSC" target="blank"><span class="fa fa-github">  GitHub</span></a></li>
