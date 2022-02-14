@@ -59,65 +59,31 @@
         <div class="bg-holder" style="background-image:url(../static/img/illustrations/dot.png);background-position:left;background-size:auto;margin-top:-105px;">
         </div>
 
-
-<div class="row"  style="margin-bottom: 20%;">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <center><h1>Diabetes Predictor</h1></center>
-        <div class="card card-body" style="border: 1px solid black;">
-            <form class="form-horizontal" action="{{ url_for('predictDiabetes') }}" method="POST">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="Pregnancies" placeholder="Number of Children">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="Glucose" placeholder="Glucose">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="BloodPressure" placeholder="BloodPressure">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="SkinThickness" placeholder="SkinThickness">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="Insulin" placeholder="Insulin">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="BMI" placeholder="BMI">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="Age" placeholder="Age">
-                        </div>
-                    </div>
-                    
-                <input type="submit" class="btn btn-info btn-block" value="Predict">
-            </form>
+<h2>Skin Disease Detector</h2>
+    <nav class="navbar navbar-dark bg-dark" style="text-align: center">
+        <div style="color:#ffffff">
+            Upload your affected skin region sample image for detection
+        </div>
+    </nav>
+<center>
+<div>
+    <form id="upload-file" method="post" enctype="multipart/form-data" action="{{ url_for('predictSkinDisease') }}" >
+        <br/><br/><label for="imageUpload" class="upload-label">
+            Choose...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+        <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary btn-lg " id="btn-predict" value="Predict!"></input>
         </div>
     </div>
-    <div class="col-md-2"></div>
+    </form>
 </div>
+</center>
 
 <footer>
     <center>

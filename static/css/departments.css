@@ -95,6 +95,12 @@
     background-size: cover;
   }
 
+  .pack-img-10{
+    background:linear-gradient(rgba(0,0,0,0.50),rgba(0,0,0,0.10)),
+    url(https://user-images.githubusercontent.com/78396437/152998359-99fd0b8b-6ade-4b1a-abba-cbc4a8aea830.jpg);
+    background-size: cover;
+  }
+
   .pack-info{
     position: absolute;
     width: inherit;

@@ -46,8 +46,8 @@
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
-              <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a></li>
-              <li class="nav-item"><a class="nav-link fw-bold active" href="{{ url_for('departments') }}">Departments</a></li>
+              <li class="nav-item"><a class="nav-link fw-bold active" aria-current="page" href="{{ url_for('home') }}">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('departments') }}">Departments</a></li>
               
               <li class="nav-item"><a class="nav-link" href="{{ url_for('loginPage') }}">Login/Sign-Up</a></li>
             </ul>
@@ -77,93 +77,104 @@
                 <li>
                  <div class="pack-box pack-img-1">
                         <div class="pack-info">
+                            <a href="{{ url_for('heartDisease') }}">
                             <h3>Heart system</h3>
-                            <form action="{{ url_for('heartDisease') }}">
-                              <button>Visit</button>
-                            </form>
+                        
+                            <button>Visit</button>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="pack-box pack-img-2">
                         <div class="pack-info">
+                            <a href="{{ url_for('covid') }}">
                             <h3>Covid-19</h3>
-                            <form action="{{ url_for('covid') }}">
-                              <button>Visit</button>
-                            </form>
+                            
+                            <button>Visit</button>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="pack-box pack-img-3">
                         <div class="pack-info">
+                            <a href="{{ url_for('diabetes') }}">
                             <h3>Diabetes</h3>
-                            <form action="{{ url_for('diabetes') }}">
-                              <button>Visit</button>
-                            </form>
+                            
+                            <button>Visit</button>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="pack-box pack-img-4">
                         <div class="pack-info">
+                            <a href="{{ url_for('kidney') }}">
                             <h3>Kidney</h3>
-                            <form action="{{ url_for('kidney') }}">
-                              <button>Visit</button>
-                            </form>
+                           
+                          <button>Visit</button>
                          </div>
                     </div>
                 </li>
                 <li>
                     <div class="pack-box pack-img-5">
                         <div class="pack-info">
+                            <a href="{{ url_for('breastCancer') }}">
                             <h3>Breast Cancer</h3>
-                            <form action="{{ url_for('breastCancer') }}">
-                              <button>Visit</button>
-                            </form>
+                            
+                            <button>Visit</button>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="pack-box pack-img-6">
                         <div class="pack-info">
+                            <a href="{{ url_for('malaria') }}">
                             <h3>Malaria</h3>
-                            <form action="{{ url_for('malaria') }}">
-                              <button>Visit</button>
-                            </form>
+            
+                        <button>Visit</button>
                     </div>
                     </div>
                 </li>
                 <li>
                  <div class="pack-box pack-img-7">
                         <div class="pack-info">
+                            <a href="{{ url_for('ThyroidDisease') }}">
                             <h3>Thyroid Disease</h3>
-                            <form action="{{ url_for('ThyroidDisease') }}">
-                              <button>Visit</button>
-                            </form>
+                            
+                            <button>Visit</button>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="pack-box pack-img-8">
                         <div class="pack-info">
+                            <a href="{{ url_for('dengue') }}">
                             <h3>Dengue</h3>
-                            <form action="{{ url_for('dengue') }}">
-                              <button>Visit</button>
-                            </form>
+                        <p>Dengue fever</p>
+                            <button>Visit</button>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="pack-box pack-img-9">
                         <div class="pack-info">
+                            <a href="{{ url_for('ParkinsonDisease') }}">
                             <h3>Parkinson</h3>
-                            <form action="{{ url_for('ParkinsonDisease') }}">
-                              <button>Visit</button>
-                            </form>
+                            
+                            <button>Visit</button>
                         </div>
                     </div>
                 </li>
+
+                <li>
+                  <div class="pack-box pack-img-10">
+                      <div class="pack-info">
+                          <a href="{{ url_for('SkinDisease') }}">
+                          <h3>Skin Cancer Detector</h3>
+                          
+                          <button>Visit</button>
+                      </div>
+                  </div>
+              </li>
                
             </ul>
         </div>

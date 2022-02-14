@@ -47,6 +47,51 @@ def model_predictThyroidDisease(values):
     values = np.asarray(values)
     return model.predict(values.reshape(1, -1))[0]
 
+def model_predictSkinDisease(img_path):
+
+    from keras.models import model_from_json
+
+    # load json and create model
+    json_file = open('Skin_Disease.json', 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+    model = model_from_json(loaded_model_json)
+
+    # load weights into new model
+    model.load_weights("Skin_Disease.h5")
+
+    img = image.load_img(img_path, target_size=(224, 224))
+    x = image.img_to_array(img)
+    x=x/255
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+
+    preds = model.predict(x)
+    
+    prediction_percentage = {
+                'Actinic Keratoses (Solar Keratoses) and intraepithelial Carcinoma': 100*preds[0]/sum(preds), # akiec
+                'Basal cell carcinoma': 100*preds[1]/sum(preds), # bcc
+                'Benign keratosis': 100*preds[2]/sum(preds), # bkl
+                'Dermatofibroma': 100*preds[3]/sum(preds), # df
+                'Un-Zoomed Image': 100*preds[4]/sum(preds), #un-zoomed image
+                'Melanoma': 100*preds[5]/sum(preds), # mel 
+                'Normal Skin Patch': 100*preds[6]/sum(preds), #normal
+                'Melanocytic nevi': 100*preds[7]/sum(preds), # nv
+                'Vascular skin lesions': 100*preds[8]/sum(preds), # vasc
+}
+    #print(preds)
+    return prediction_percentage
+
+
+def model_predictBreastCancer(df):
+    model1 = pickle.load(open('models/breastCancer/model1.pickle','rb'))
+    return model1.predict(df)[0]
+
+
+def model_predictHeartDisease(df):
+    model = pickle.load(open('models/heartDisease/model.pickle','rb'))
+    return model.predict(df)[0]
+
 def model_predictMalaria(img_path):
     model = load_model('models/malaria/malaria.h5')
     img = image.load_img(img_path, target_size=(224, 224))
@@ -59,16 +104,6 @@ def model_predictMalaria(img_path):
     preds=np.argmax(preds, axis=1)
     print(preds)
     return preds
-
-
-def model_predictBreastCancer(df):
-    model1 = pickle.load(open('models/breastCancer/model1.pickle','rb'))
-    return model1.predict(df)[0]
-
-
-def model_predictHeartDisease(df):
-    model = pickle.load(open('models/heartDisease/model.pickle','rb'))
-    return model.predict(df)[0]
 
 def login():
     master = mongo.db.Users
@@ -129,8 +164,11 @@ def breastCancer():
 @app.route("/heartDisease", methods=['GET', 'POST'])
 def heartDisease():
     return render_template('heartDisease.html')
-    
 
+@app.route("/SkinDisease", methods=['GET', 'POST'])
+def malaria():
+    return render_template('SkinDisease.html')
+    
 @app.route("/login", methods=['GET', 'POST'])
 def loginPage():
     return render_template('login.html')
@@ -296,6 +334,23 @@ def predictMalaria():
         output = class_names[preds[0]]
       
     return render_template('predictMalaria.html', pred = output)
+
+@app.route("/predictSkinDisease", methods = ['POST', 'GET'])
+def predictSkinDisease():
+    output = "Invalid request method"
+    if request.method == 'POST':
+        # Get the file from post request
+        f = request.files['file']
+        basepath = os.path.dirname(__file__)
+        file_path = os.path.join(
+            basepath, 'static/uploads', secure_filename(f.filename))
+        f.save(file_path)
+
+        # Make prediction
+        predic = model_predictSkinDisease(file_path)
+
+      
+    return render_template('predictMalaria.html', pred = predic)
     
 @app.route('/predictBreastCancer',methods=['POST'])
 def predictBreastCancer():
