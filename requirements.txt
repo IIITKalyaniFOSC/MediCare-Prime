@@ -1,4 +1,4 @@
-Flask==2.0.1
+Flask==2.3.2
 h5py==3.1.0
 imutils==0.5.4
 itsdangerous==2.0.1
